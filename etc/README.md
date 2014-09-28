@@ -4,6 +4,7 @@ This is a copy of my `/etc` directory content related to the project.
 being used to to react to the motion detection events.
 
 `init.d` directory contains two utility init scripts:
+
 1. `motion` is used to start Motion in the daemon mode and redirect the output
 to a log file. By default it uses `root` user, but if you don't use the GPIO
 triggering script, then I suggest you to change that to `motion` for better security;

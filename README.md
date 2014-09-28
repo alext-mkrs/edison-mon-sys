@@ -12,7 +12,7 @@ This is an example project one can do with Edison, with the following features:
 
 Dependencies
 =============
-Your Edison image should have Motion and webcam driver installed to be able tp run this. Node.js is there by default.
+Your Edison image should have Motion and webcam driver installed to be able to run this. Node.js is there by default.
 
 Additionally, I've used [Temboo](https://www.temboo.com) as a middleware to (a) check it out and (b) make the development faster. You should put the Temboo Node.js SDK into `home/motion/scripts/node_modules/temboo`, the project was tested with version 2.2.0.
 

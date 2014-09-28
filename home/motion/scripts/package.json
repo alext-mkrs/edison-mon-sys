@@ -1,0 +1,8 @@
+{
+  "name": "motion-edison-demo-webserver",
+  "description": "Simple webserver for working around a browser bug with MJPG streaming",
+  "version": "0.1.0",
+  "dependencies": {
+    "express": "*"
+  }
+}	

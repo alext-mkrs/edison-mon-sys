@@ -1,0 +1,43 @@
+#!/bin/sh
+
+# Script to autostart web server, which serves the page, wrapping motion's stream into <img> tag.
+# This is done to overcome bugs in Chrome and other browsers, which block displaying the stream as-is
+
+start() {
+  start-stop-daemon -S -x /bin/sh -c motion -v -b -p /var/run/motion-ws.pid -m -- -c "exec /usr/bin/node /home/motion/scripts/server.js >> /home/motion/motion-ws.log 2>&1" \
+  && echo "Motion webserver started successfully"
+}
+
+stop() {
+  start-stop-daemon -K -p /var/run/motion-ws.pid -v \
+  && echo "Motion webserver stopped successfully"
+}
+
+check() {
+  start-stop-daemon -K -q -p /var/run/motion-ws.pid -t
+  isrunning=$?
+  if [ "$isrunning" = "0" ]; then
+    echo "Motion webserver is running"
+  else
+    echo "Motion webserver is not running"
+  fi
+  return $isrunning
+}
+
+case "$1" in
+   start)
+	   check && exit 0
+	   $1
+	   ;;
+    stop)
+	  check || exit 0
+	  $1
+	  ;;
+  status)
+	  check
+	  exit $?
+	  ;;
+       *)
+	  echo "USAGE: {start|stop|status}"
+	  exit1
+esac

@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# Script to autostart motion detection software
+
+start() {
+  start-stop-daemon -S -x /bin/sh -c root -v -b -p /var/run/motion.pid -m -- -c "exec /usr/bin/motion -c /etc/motion.conf >> /home/motion/motion.log 2>&1" \
+  && echo "Motion started successfully"
+}
+
+stop() {
+  start-stop-daemon -K -p /var/run/motion.pid -x /usr/bin/motion -v \
+  && echo "Motion stopped successfully"
+}
+
+check() {
+  start-stop-daemon -K -q -p /var/run/motion.pid -x /usr/bin/motion -v -t
+  isrunning=$?
+  if [ "$isrunning" = "0" ]; then
+    echo "Motion is running"
+  else
+    echo "Motion is not running"
+  fi
+  return $isrunning
+}
+
+case "$1" in
+   start)
+	   check && exit 0
+	   $1
+	   ;;
+    stop)
+	  check || exit 0
+	  $1
+	  ;;
+  status)
+	  check
+	  exit $?
+	  ;;
+       *)
+	  echo "USAGE: {start|stop|status}"
+	  exit1
+esac

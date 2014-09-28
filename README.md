@@ -3,6 +3,7 @@ Sources and config files for Edison-based monitoring system
 This repo contains sources and instructions for building an Intel(r) Edison-based monitoring system with motion detection and cloud/social connection.
 
 This is an example project one can do with Edison, with the following features:
+
 1. Motion detection in a webcam stream (using [Motion](http://sourceforge.net/projects/motion/))
 2. Posting alerts to Twitter with predefined text (script triggered by Motion);
 2. Capturing video frames with motion in them and storing them locally (through Motion) + posting them to Google Drive (script triggered by Motion);

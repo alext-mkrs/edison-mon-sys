@@ -20,3 +20,9 @@ Additionally, I've used [Temboo](https://www.temboo.com) as a middleware to (a) 
 You of course need Twitter, Google Drive and Xively accounts to be able to post data there. Then use Temboo's ability to run Choreos via their web page to obtain necessary OAuth credentials and insert them into scripts (you'll see placeholders there).
 
 For details on the contents see README files in each directory.
+
+You can see the system in action on these videos/photos made by IFA visitors:
+
+1. http://www.youtube.com/watch?v=JUJ5FUrAOcY
+2. https://www.youtube.com/watch?v=qsvedUOWq9g
+3. https://www.tinhte.vn/threads/ifa-2014-intel-edison-chiec-may-tinh-sieu-nho-co-2-nhan-cpu-ram-wi-fi-bluetooth.2355953/
